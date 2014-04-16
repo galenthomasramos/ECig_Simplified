@@ -887,16 +887,16 @@
                                     <div data-role="collapsible" id="reference-surveym">\
                                         <h3>Tobacco Use Interview</h3>\
                                         <p>This survey is to be completed by the user whenever they finish a tobacco product. \
-                                        \n\nSimply log in to the application and as long as there is no notification which has fired within three minutes, you will be taken to the main menu.\
+                                        \n\nSimply log in to the application and as long as there is no Random Prompt Notification which has fired within three minutes, you will be taken to the main menu.\
                                          From the main menu tap "Tobacco use survey"\
                                          and complete the questionnaire until you are alerted to the survey being recorded and have been taken back to the main menu.</p>\
                                     </div>\
                                     <div data-role="collapsible" id="reference-surveyA">\
                                         <h3>Random Prompt Notifications</h3>\
-                                        <p>You will receive seven randomized notifications every 24 hours. Please complete as many surveys as possible when notified.\
+                                        <p>You will receive seven randomized Random Prompt Notifications every 24 hours. Please complete as many surveys as possible when notified.\
                                         \n\nSimply tap on the notification once it pops up in your Android phone\'s status bar. \
-                                        This will open up the application and allow you to log in. The only way to take a random prompt survey is if a notification has fired within the last three minutes.\
-                                        Any notification that is currently within the status bar will be cleared and the app will record any missed notifications.\
+                                        This will open up the application and allow you to log in. The only way to take a random prompt survey is if a Random Prompt Notification has fired within the last three minutes.\
+                                        Any Random Prompt Notification that is currently within the status bar will be cleared and the app will record any missed Random Prompt Notifications.\
                                         Upon entering the survey, please answer all of the questions.\
                                         Once you complete the survey, you will be taken back to the main menu.\
                                         Please note: if you navigate away from the survey while taking the survey, or take longer than five minutes to complete the random prompt survey, the application will register the survey as being abandoned.</p>\
@@ -943,23 +943,23 @@
                                 </div>\
                                 \
                                 <div data-role="collapsible">\
-                                    <h3>Notifications</h3>\
+                                    <h3>Random Prompt Notifications</h3>\
                                     <img src="img/icon.png" style="text-align: center;">\
-                                    <p>The above image shows you the icon that accompanies notifications. Notifications will appear in the status bar at the top of the screen. Click the button below to hear what a notification will sound like.</p>\
-                                    <a href="#" data-role="button" onclick="toggleNotifAudio()">Click here to hear a notification</a>\
+                                    <p>The above image shows you the icon that accompanies Random Prompt Notifications. Random Prompt Notifications will appear in the status bar at the top of the screen. Click the button below to hear what a notification will sound like.</p>\
+                                    <a href="#" data-role="button" onclick="toggleNotifAudio()">Click here to hear a Random Prompt Notification</a>\
                                 </div>\
                                 \
                                 <div data-role="collapsible">\
                                     <h3>Bedtime</h3>\
-                                    <p>Use the time scroll wheel to set an alarm for the application. From the time you set this alarm until the time the alarm goes off, you will not receive notifications.\n\n\
-                                    Upon the alarm going off, you will receive notifications again for that day.</p>\
+                                    <p>Use the time scroll wheel to set an alarm for the application. From the time you set this alarm until the time the alarm goes off, you will not receive Random Prompt Notifications.\n\n\
+                                    Upon the alarm going off, you will receive Random Prompt Notifications again for that day.</p>\
                                 </div>\
                                 \
                                 <div data-role="collapsible">\
                                     <h3>Suspend</h3>\
-                                    <p>Select a period of time from the drop-down menu on the left for which you do not want to receive notifications. This will cancel all future notifications that lie within the selected time limit..\n\n\
-                                    Be aware that you are supposed to complete around five notifications a day.\n\n\
-                                    Select the reason for suspending notification on the right drop-down menu.</p>\
+                                    <p>Select a period of time from the drop-down menu on the left for which you do not want to receive Random Prompt Notifications. This will cancel all future Random Prompt Notifications that lie within the selected time limit..\n\n\
+                                    Be aware that you are supposed to complete around five Random Prompt Notifications a day.\n\n\
+                                    Select the reason for suspending Random Prompt Notification on the right drop-down menu.</p>\
                                 </div>\
                             </div>';
 
@@ -1692,7 +1692,7 @@
 
             writingToRandomPromptInt = false;
 
-            alert("App is no longer suspended. \nYou are now receiving notifications");
+            alert("App is no longer suspended. \nYou are now receiving Random Prompt Notifications");
 
             if(typeof(callback) ==="function"){
                 callback();
@@ -1708,7 +1708,7 @@
 
             writingToRandomPromptInt = false;
 
-            alert("App is now awake. \nYou are now receiving notifications.");
+            alert("App is now awake. \nYou are now receiving Random Prompt Notifications.");
 
             if(typeof(callback) ==="function"){
                 callback();
@@ -1865,7 +1865,7 @@
                 }
                 //If all of the current notifs which have been triggered are late (no valid notif)
                 else{
-                    alert("No notification has fired within the last 3 minutes.\nYou will be taken to the main menu.");
+                    //alert("No Random Prompt Notification has fired within the last 3 minutes.\nYou will be taken to the main menu.");
                     $.mobile.navigate("#main");
 
                     startedRandomPromptSurvey = false;
@@ -1877,7 +1877,7 @@
 
                 clearStackedNotifs(function(){
                     if(hasMissedNotif){
-                        alert("Notification(s) missed. This has been logged.\nPlease remember to respond to as many notifications as possible.");
+                        alert("Random Prompt Notification(s) missed. This has been logged.\nPlease remember to respond to as many Random Prompt Notifications as possible.");
                         hasMissedNotif = false;
                     }
                     //console.log("\nnotifTimes after clear stack: " + notifTimes.toString());
@@ -3664,7 +3664,7 @@
                 id:         passedNo,
                 date:       tempDate,
                 message:    "Tap to take a survey",
-                title:      'Random prompt notification',
+                title:      'Random Prompt Notification',
                 //autoCancel: true,
                 sound:      notifAudioLoc,
                 json:       JSON.stringify({ date: tempStr}),
@@ -4065,7 +4065,7 @@
             window.plugin.notification.local.add({
                 id:         -1,
                 message:    "Tap here to take a survey",
-                title:      'Random prompt notification',
+                title:      'Random Prompt Notification',
                 autoCancel: true,
                 sound:      notifAudioLoc,
                 badge:      -1
@@ -4299,7 +4299,7 @@
                     if(notifTimes[i]){
                         if(notifTimes[i].isAfter(now) && notifTimes[i].isBefore(suspendLimit)){
                             //translatedIndex = (i - diff) + 1;
-                            console.log('\nSUSPENSION: notif ' + (i + 1) + " cancelled!");
+                            //console.log('\nSUSPENSION: notif ' + (i + 1) + " cancelled!");
                             window.plugin.notification.local.cancel(i + 1);
                             notifTimes[i] = null;
                         }
@@ -4330,7 +4330,7 @@
                 $("#login-header h1").text("Notifications Suspended");
                 $("#login-footer-header").text("Log in to break suspension");
 
-                setLoginStatusLabel("Notifications will resume: " + moment(resumeTime).format("MMM D, h:mm a"));
+                setLoginStatusLabel("Random Prompt Notifications will resume: " + moment(resumeTime).format("MMM D, h:mm a"));
 
                 //console.log('\nwithin changeAppStatus(\'suspend\'');
             }
@@ -4338,10 +4338,10 @@
                 currentState = states.ASLEEP;
                 switchLoginTheme('f');
 
-                $("#login-header h1").text("App is asleep");
+                $("#login-header h1").text("App is Asleep");
                 $("#login-footer-header").text("Log in to break bedtime");
 
-                setLoginStatusLabel("Notifications will resume: " + moment(resumeTime).format("MMM D, h:mm a"));
+                setLoginStatusLabel("Random Prompt Notifications will resume: " + moment(resumeTime).format("MMM D, h:mm a"));
 
                 //console.log('\nwithin changeAppStatus(\'bedtime\'');
             }
@@ -4367,7 +4367,7 @@
                 $("#delaydiv #select-choice-1").val(5).selectmenu('refresh');
 
                 //console.log('\nwithin changeAppStatus(\'active\'');
-                setLoginStatusLabel("Receiving notifications");
+                setLoginStatusLabel("Receiving Random Prompt Notifications");
 
                 resumeTime = null;
                 wakeUpFiring = false;
@@ -4689,7 +4689,7 @@
                     <!--a href="#" id="login-button" data-role="button" data-rel="popup" onclick="checkLoginPopUp()">Login</a-->
                 </form>
                 <div id="login-statuslabel">
-                    <h3 align="center">Receiving notifications</h3>
+                    <h3 align="center">Receiving Random Prompt Notifications</h3>
                 </div>
 
 
@@ -5244,7 +5244,7 @@
     <div data-role="page" id="suspend">
 
         <div data-role="header" data-theme="g">
-            <h1>Suspend Notifications</h1>
+            <h1>Suspend Prompt Notifications</h1>
         </div>
 
         <div data-role="content">
